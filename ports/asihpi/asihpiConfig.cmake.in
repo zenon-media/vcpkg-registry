@@ -1,0 +1,7 @@
+if(NOT TARGET asihpi::asihpi)
+    add_library(asihpi::asihpi INTERFACE IMPORTED)
+    set_target_properties(asihpi::asihpi PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/../../include"
+        INTERFACE_LINK_LIBRARIES "${CMAKE_CURRENT_LIST_DIR}/../../lib/@_asihpi_main@.lib;${CMAKE_CURRENT_LIST_DIR}/../../lib/@_asihpi_udp@.lib"
+    )
+endif()

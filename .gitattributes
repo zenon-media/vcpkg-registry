@@ -1,0 +1,7 @@
+*.patch text eol=lf
+*.diff text eol=lf
+*.sh text eol=lf
+*.cmake text eol=lf
+portfile.cmake text eol=lf
+CONTROL text eol=lf
+vcpkg.json text eol=lf

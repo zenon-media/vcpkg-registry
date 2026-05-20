@@ -1,0 +1,12 @@
+diff --git a/otlv40500.h b/otlv40500.h
+--- a/otlv40500.h
++++ b/otlv40500.h
+@@ -14366,6 +14366,8 @@
+ 
+   OTL_NODISCARD int get_connected() const { return connected; }
+ 
++  OTL_NODISCARD shell_state *get_shell() const { return shell; }
++
+   OTL_NODISCARD int get_dirty_buf_len() const {
+     switch (shell->stream_type) {
+     case otl_odbc_no_stream:
