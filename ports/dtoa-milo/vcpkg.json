@@ -1,17 +1,17 @@
 {
-    "name": "dtoa-milo",
-    "version": "1.0",
-    "description": "Milo Yip's fast double-to-ASCII (dtoa) implementation — header-only",
-    "homepage": "https://github.com/miloyip/dtoa-benchmark",
-    "license": "MIT",
-    "dependencies": [
-        {
-            "name": "vcpkg-cmake",
-            "host": true
-        },
-        {
-            "name": "vcpkg-cmake-config",
-            "host": true
-        }
-    ]
+  "name": "dtoa-milo",
+  "version": "1.0",
+  "description": "Milo Yip's fast double-to-ASCII (dtoa) implementation — header-only",
+  "homepage": "https://github.com/miloyip/dtoa-benchmark",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
 }

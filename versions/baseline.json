@@ -1,3 +1,16 @@
 {
-  "default": {}
+  "default": {
+    "asihpi": {
+      "baseline": "4.20",
+      "port-version": 0
+    },
+    "dtoa-milo": {
+      "baseline": "1.0",
+      "port-version": 0
+    },
+    "otl": {
+      "baseline": "4.0.500",
+      "port-version": 0
+    }
+  }
 }

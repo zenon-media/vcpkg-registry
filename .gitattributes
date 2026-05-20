@@ -2,6 +2,7 @@
 *.diff text eol=lf
 *.sh text eol=lf
 *.cmake text eol=lf
+*.json text eol=lf
 portfile.cmake text eol=lf
 CONTROL text eol=lf
 vcpkg.json text eol=lf
