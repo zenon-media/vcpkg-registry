@@ -8,6 +8,10 @@
       "baseline": "1.0",
       "port-version": 0
     },
+    "imagemagick": {
+      "baseline": "7.1.2-18",
+      "port-version": 0
+    },
     "otl": {
       "baseline": "4.0.500",
       "port-version": 0
