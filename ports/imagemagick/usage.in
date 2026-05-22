@@ -1,0 +1,13 @@
+imagemagick provides CMake targets:
+
+    find_package(imagemagick CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE ImageMagick::Magick++)
+    # Also available: ImageMagick::MagickCore, ImageMagick::MagickWand
+
+Alternatively, via pkg-config:
+
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(MagickCore REQUIRED IMPORTED_TARGET MagickCore-7.${_im_qsuffix})
+
+This port was built with zero-configuration: all settings are embedded in the
+binary. No external XML config files are needed at runtime.

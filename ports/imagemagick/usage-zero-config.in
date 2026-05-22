@@ -1,0 +1,18 @@
+imagemagick provides CMake targets:
+
+    find_package(imagemagick CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE ImageMagick::Magick++)
+    # Also available: ImageMagick::MagickCore, ImageMagick::MagickWand
+
+Alternatively, via pkg-config:
+
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(MagickCore REQUIRED IMPORTED_TARGET MagickCore-7.${_im_qsuffix})
+
+ImageMagick requires XML configuration files at runtime (policy.xml, delegates.xml, etc.).
+They are installed to:
+
+    ${CURRENT_INSTALLED_DIR}/share/imagemagick/config
+
+Set the MAGICK_CONFIGURE_PATH environment variable to this directory, or copy its
+contents next to your executable. Without these files, MagickCoreGenesis() will fail.
