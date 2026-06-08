@@ -12,6 +12,10 @@
       "baseline": "7.1.2-18",
       "port-version": 0
     },
+    "lua53": {
+      "baseline": "5.3.5",
+      "port-version": 6
+    },
     "otl": {
       "baseline": "4.0.500",
       "port-version": 0
