@@ -5,14 +5,13 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ImageMagick/ImageMagick
-    REF 7.1.2-18
-    SHA512 168326e62c2ca5608a660e030b9777c7200458f9eb128854867e9bf20e1aa3d603a819aa3095fb3cf13133ceb9a9c9859374b7ce872bebb179c3afdf943ec831
+    REF 7.1.2-27
+    SHA512 2b2e47b2ad5151d40f6a5afd4f438ff61163a88f49ff190ac4353ab06db57158cbfc0a6abecea8652ed98f622023b15adec609a11d3c7197fb95d8c4b7e25cc0
     HEAD_REF main
     PATCHES
         patches/0001-fix-zstd-pkgconfig-prefix.patch
         patches/0002-fix-fallthrough-msvc-c-mode.patch
         patches/0003-fix-cppflags-crt-conflict.patch
-        patches/0004-fix-uhdr-cpp-compat.patch
         patches/0005-fix-warning-directive-msvc.patch
         patches/0006-fix-winpathscript-init-order.patch
 )
