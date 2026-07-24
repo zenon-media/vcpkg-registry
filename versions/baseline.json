@@ -9,7 +9,7 @@
       "port-version": 0
     },
     "imagemagick": {
-      "baseline": "7.1.2-18",
+      "baseline": "7.1.2-27",
       "port-version": 0
     },
     "lua53": {
