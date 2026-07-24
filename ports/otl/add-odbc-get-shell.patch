@@ -1,6 +1,6 @@
-diff --git a/otlv40500.h b/otlv40500.h
---- a/otlv40500.h
-+++ b/otlv40500.h
+diff --git a/otlv40502.h b/otlv40502.h
+--- a/otlv40502.h
++++ b/otlv40502.h
 @@ -14366,6 +14366,8 @@
  
    OTL_NODISCARD int get_connected() const { return connected; }
