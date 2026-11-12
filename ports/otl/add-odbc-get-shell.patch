@@ -1,12 +1,22 @@
-diff --git a/otlv40502.h b/otlv40502.h
---- a/otlv40502.h
-+++ b/otlv40502.h
-@@ -14366,6 +14366,8 @@
+diff --git a/otlv40509.h b/otlv40509.h
+--- a/otlv40509.h
++++ b/otlv40509.h
+@@ -14265,4 +14265,6 @@ class otl_stream {
+ private:
+   otl_select_stream *ss {nullptr};
+   otl_inout_stream *io {nullptr};
++
++public:
+   otl_connect *adb {nullptr};
+@@ -14270 +14272,2 @@ class otl_stream {
++private:
+   int auto_commit_flag {0};
+@@ -14496,6 +14499,8 @@
+   }
  
    OTL_NODISCARD int get_connected() const { return connected; }
  
-+  OTL_NODISCARD shell_state *get_shell() const { return shell; }
++  OTL_NODISCARD const otl_stream *get_shell() const { return this; }
 +
    OTL_NODISCARD int get_dirty_buf_len() const {
-     switch (shell->stream_type) {
-     case otl_odbc_no_stream:
+     switch (stream_type) {
