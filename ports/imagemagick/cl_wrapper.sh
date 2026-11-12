@@ -132,7 +132,7 @@ for arg; do
                     -Xlinker) continue ;;
                     -LIBPATH:*|-libpath:*) ;;
                     -L*) wl_flag="-libpath:${wl_flag#-L}" ;;
-                    -l*) wl_flag=$(resolve_lib "${wl_flag#-l}") ;;
+                    -l*) wl_flag=$(IFS="$old_IFS"; resolve_lib "${wl_flag#-l}") ;;
                 esac
                 if [ "$had_link" = "1" ]; then
                     echo "$wl_flag" >> "$tmpf"
