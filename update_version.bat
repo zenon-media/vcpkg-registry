@@ -1,5 +1,19 @@
 @echo off
-pushd "%~dp0"
-if "%VCPKG_ROOT%" == "" set VCPKG_ROOT=D:\Builds\vcpkg
-%VCPKG_ROOT%\vcpkg.exe --x-builtin-ports-root="%~dp0\ports" --x-builtin-registry-versions-dir="%~dp0\versions" x-add-version %*
+setlocal
+if "%~1"=="" (
+	echo Usage: %~nx0 ^<port^> [x-add-version options]
+	endlocal & exit /b 2
+)
+if not defined VCPKG_ROOT (
+	echo Set VCPKG_ROOT to the vcpkg checkout containing vcpkg.exe.
+	endlocal & exit /b 2
+)
+if not exist "%VCPKG_ROOT%\vcpkg.exe" (
+	echo vcpkg.exe not found under VCPKG_ROOT: "%VCPKG_ROOT%"
+	endlocal & exit /b 2
+)
+pushd "%~dp0" || (endlocal & exit /b 1)
+"%VCPKG_ROOT%\vcpkg.exe" --x-builtin-ports-root="%~dp0ports" --x-builtin-registry-versions-dir="%~dp0versions" x-add-version %*
+set "result=%ERRORLEVEL%"
 popd
+endlocal & exit /b %result%

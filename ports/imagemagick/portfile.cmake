@@ -5,8 +5,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ImageMagick/ImageMagick
-    REF 7.1.2-27
-    SHA512 2b2e47b2ad5151d40f6a5afd4f438ff61163a88f49ff190ac4353ab06db57158cbfc0a6abecea8652ed98f622023b15adec609a11d3c7197fb95d8c4b7e25cc0
+    REF 7.1.2-35
+    SHA512 caba66e1e1265b280245d5bedf641570876bc7f2c7bbe9113981fd6c4eb677acca4ef6719c0ff9fe3b315e1621f526276ad912bfc9c56353d29c65c9261836ac
     HEAD_REF main
     PATCHES
         patches/0001-fix-zstd-pkgconfig-prefix.patch
@@ -306,6 +306,17 @@ endif()
 
 vcpkg_build_make()
 vcpkg_install_make()
+if(VCPKG_TARGET_IS_WINDOWS)
+    file(GLOB _pkgconfig_files
+        "${CURRENT_PACKAGES_DIR}/lib/pkgconfig/*.pc"
+        "${CURRENT_PACKAGES_DIR}/debug/lib/pkgconfig/*.pc"
+    )
+    foreach(_pkgconfig_file IN LISTS _pkgconfig_files)
+        file(READ "${_pkgconfig_file}" _pkgconfig_content)
+        string(REPLACE "Cflags: " "Cflags: -Dssize_t=ptrdiff_t " _pkgconfig_content "${_pkgconfig_content}")
+        file(WRITE "${_pkgconfig_file}" "${_pkgconfig_content}")
+    endforeach()
+endif()
 vcpkg_fixup_pkgconfig()
 
 # The *-config shell scripts contain absolute build paths (harmless, they are

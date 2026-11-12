@@ -1,12 +1,12 @@
 # Overlay port for otl — adds get_shell() to the ODBC otl_stream class.
-# Based on vcpkg upstream port (4.0.502) with a single patch.
+# Based on vcpkg upstream port (4.0.509) with a single patch.
 
-set(OTL_VERSION 40502)
+set(OTL_VERSION 40509)
 
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://otl.sourceforge.net/otlv4_${OTL_VERSION}.zip"
+    URLS "https://otl.sourceforge.net/otlv4_${OTL_VERSION}.zip"
     FILENAME "otlv4_${OTL_VERSION}.zip"
-    SHA512 d458604ecd7454a4f9b778802a15053395322ec948bbaff6bbfb3240d3988a11296bb8a08cbd01d86feb902132b1f834b2781116b143bfcd5a5b701392ee7c52
+    SHA512 235536b9f49fb05016bf118c610fd1f078bde961a69ba56f6d746c30ec2ee1753c1d0d72948fd73c7aa5a38ec8e605c133544789ccdee0d678751bb62872d3c2
 )
 
 vcpkg_extract_source_archive(

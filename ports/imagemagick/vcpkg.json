@@ -1,6 +1,6 @@
 {
   "name": "imagemagick",
-  "version": "7.1.2-27",
+  "version": "7.1.2-35",
   "description": "ImageMagick is a software suite to create, edit, compose, or convert digital images",
   "homepage": "https://imagemagick.org",
   "license": "ImageMagick",

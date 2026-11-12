@@ -71,6 +71,27 @@ tmpf=$(mktemp)
 trap 'rm -f "$tmpf"' EXIT
 link_flags=""
 lib_dirs=""
+for arg; do
+    case "$arg" in
+        -LIBPATH:*|-libpath:*)
+            lib_dirs="$lib_dirs ${arg#*:}"
+            ;;
+        -L*)
+            lib_dirs="$lib_dirs ${arg#-L}"
+            ;;
+        -Wl,*)
+            rest="${arg#-Wl,}"
+            old_IFS="$IFS"; IFS=','
+            for wl_flag in $rest; do
+                case "$wl_flag" in
+                    -LIBPATH:*|-libpath:*) lib_dirs="$lib_dirs ${wl_flag#*:}" ;;
+                    -L*) lib_dirs="$lib_dirs ${wl_flag#-L}" ;;
+                esac
+            done
+            IFS="$old_IFS"
+            ;;
+    esac
+done
 had_link=0
 eat_next=""
 for arg; do
@@ -107,6 +128,12 @@ for arg; do
             rest="${arg#-Wl,}"
             old_IFS="$IFS"; IFS=','
             for wl_flag in $rest; do
+                case "$wl_flag" in
+                    -Xlinker) continue ;;
+                    -LIBPATH:*|-libpath:*) ;;
+                    -L*) wl_flag="-libpath:${wl_flag#-L}" ;;
+                    -l*) wl_flag=$(resolve_lib "${wl_flag#-l}") ;;
+                esac
                 if [ "$had_link" = "1" ]; then
                     echo "$wl_flag" >> "$tmpf"
                 else

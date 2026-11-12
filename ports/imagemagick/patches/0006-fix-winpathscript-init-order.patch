@@ -1,8 +1,6 @@
-diff --git a/configure b/configure
-index 0cc2199..d0b4eaf 100644
---- a/configure
-+++ b/configure
-@@ -5607,6 +5607,13 @@ MAGICK_FILTER_MODULE_PATH="${builddir}/filters"
+--- a/configure.ac
++++ b/configure.ac
+@@ -250,6 +250,13 @@ MAGICK_FILTER_MODULE_PATH="${builddir}/filters"
  DIRSEP=':'
  case "${build_os}" in
      mingw* )
