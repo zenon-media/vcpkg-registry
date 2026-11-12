@@ -5,7 +5,7 @@ Private vcpkg registry for ports that are not available in the public registry o
 
 - `asihpi`: AudioScience HPI - library needed to build the legacy ZFramework
 - `dtoa-milo`: double ←→ string conversion "library" - needed to build the legacy ZFramework
-- `imagemagick`: supports additional read/write formats and security policies not provided by GraphicsMagick
+- `imagemagick`: not accepted by upstream vcpkg because GraphicsMagick has longstanding precedence in the registry; this port supports a broader range of read/write formats and security policies
 - `lua53`: patched old Lua - needed to build the legacy ZFramework
 - `otl`: patched OTL that exports `get_shell` for all backends - needed to build the legacy ZFramework
 
